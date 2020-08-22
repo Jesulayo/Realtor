@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.SignUpPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource Blue}"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout Padding="20,50,20,30">
+
+            <Label
+                Margin="0,20,0,0"
+                HorizontalOptions="Start"
+                Style="{StaticResource WhiteLargeBold}"
+                Text="Sign Up" />
+
+            <BoxView
+                Margin="0,0,235,0"
+                CornerRadius="5"
+                HeightRequest="5"
+                TranslationY="-10"
+                Color="{StaticResource White}" />
+
+            <StackLayout>
+                <material:MaterialTextField
+                    Margin="0,50,0,0"
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="Transparent"
+                    FloatingPlaceholderColor="{StaticResource White}"
+                    FloatingPlaceholderEnabled="True"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Placeholder="Company Name"
+                    PlaceholderColor="{StaticResource White}"
+                    PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding CompanyName}"
+                    TextColor="{StaticResource White}"
+                    TextFontFamily="{StaticResource PoppinsRegular}"
+                    TintColor="{StaticResource White}"
+                    UnderlineColor="{StaticResource White}" />
+                <material:MaterialTextField
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="Transparent"
+                    FloatingPlaceholderColor="{StaticResource White}"
+                    FloatingPlaceholderEnabled="True"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Placeholder="Username"
+                    PlaceholderColor="{StaticResource White}"
+                    PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding Username}"
+                    TextColor="{StaticResource White}"
+                    TextFontFamily="{StaticResource PoppinsRegular}"
+                    TintColor="{StaticResource White}"
+                    UnderlineColor="{StaticResource White}" />
+                <material:MaterialTextField
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="Transparent"
+                    FloatingPlaceholderColor="{StaticResource White}"
+                    FloatingPlaceholderEnabled="True"
+                    InputType="Email"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Placeholder="E-mail"
+                    PlaceholderColor="{StaticResource White}"
+                    PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding Email}"
+                    TextColor="{StaticResource White}"
+                    TextFontFamily="{StaticResource PoppinsRegular}"
+                    TintColor="{StaticResource White}"
+                    UnderlineColor="{StaticResource White}" />
+                <material:MaterialTextField
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="Transparent"
+                    FloatingPlaceholderColor="{StaticResource White}"
+                    FloatingPlaceholderEnabled="True"
+                    InputType="Telephone"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Placeholder="Phone number"
+                    PlaceholderColor="{StaticResource White}"
+                    PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding PhoneNumber}"
+                    TextColor="{StaticResource White}"
+                    TextFontFamily="{StaticResource PoppinsRegular}"
+                    TintColor="{StaticResource White}"
+                    UnderlineColor="{StaticResource White}" />
+                <material:MaterialTextField
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="Transparent"
+                    FloatingPlaceholderColor="{StaticResource White}"
+                    FloatingPlaceholderEnabled="True"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Placeholder="Address"
+                    PlaceholderColor="{StaticResource White}"
+                    PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding Address}"
+                    TextColor="{StaticResource White}"
+                    TextFontFamily="{StaticResource PoppinsRegular}"
+                    TintColor="{StaticResource White}"
+                    UnderlineColor="{StaticResource White}" />
+                <material:MaterialTextField
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="Transparent"
+                    FloatingPlaceholderColor="{StaticResource White}"
+                    FloatingPlaceholderEnabled="True"
+                    InputType="Password"
+                    IsEnabled="{Binding IsNotBusy}"
+                    IsMaxLengthCounterVisible="False"
+                    MaxLength="11"
+                    Placeholder="Password"
+                    PlaceholderColor="{StaticResource White}"
+                    PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding Password}"
+                    TextColor="{StaticResource White}"
+                    TextFontFamily="{StaticResource PoppinsRegular}"
+                    TintColor="{StaticResource White}"
+                    UnderlineColor="{StaticResource White}" />
+                <material:MaterialTextField
+                    AlwaysShowUnderline="True"
+                    BackgroundColor="Transparent"
+                    FloatingPlaceholderColor="{StaticResource White}"
+                    FloatingPlaceholderEnabled="True"
+                    InputType="Password"
+                    IsEnabled="{Binding IsNotBusy}"
+                    IsMaxLengthCounterVisible="False"
+                    MaxLength="11"
+                    Placeholder="Confirm Password"
+                    PlaceholderColor="{StaticResource White}"
+                    PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                    ReturnType="Next"
+                    ShouldAnimateUnderline="True"
+                    Text="{Binding ConfirmPassword}"
+                    TextColor="{StaticResource White}"
+                    TextFontFamily="{StaticResource PoppinsRegular}"
+                    TintColor="{StaticResource White}"
+                    UnderlineColor="{StaticResource White}" />
+            </StackLayout>
+
+
+
+            <Button
+                Margin="0,80,0,0"
+                Command="{Binding NavigateToSignUpCommand}"
+                Style="{StaticResource WhiteButton}"
+                Text="Sign Up" />
+
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Style="{StaticResource WhiteSmallRegular}" Text="Already have an account?" />
+                <Label
+                    Style="{StaticResource LightBlueSmallRegular}"
+                    Text="LOG IN"
+                    TextDecorations="Underline">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToLogInCommand}" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+            <!--<Button
+                Margin="0,60,0,0"
+                Command="{Binding NavigateToNextCommand}"
+                Style="{StaticResource LightBlueButton}"
+                Text="Next" />
+            <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                <Label Style="{StaticResource WhiteSmallRegular}" Text="Already have an account?" />
+                <Label Style="{StaticResource RedSmallRegular}" Text="Continue">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToLogInCommand}" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>-->
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    x:Class="Realtor.Styles.Fonts"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <OnPlatform x:Key="PoppinsRegular" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Poppins-Regular.ttf#Poppins-Regular" />
+        <On Platform="iOS" Value="Poppins-Regular" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="PoppinsBold" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Poppins-Bold.ttf#Poppins-Bold" />
+        <On Platform="iOS" Value="Poppins-Bold" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="PoppinsBoldItalic" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Poppins-BoldItalic.ttf#Poppins-BoldItalic" />
+        <On Platform="iOS" Value="Poppins-BoldItalic" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="PoppinsItalic" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Poppins-Italic.ttf#Poppins-Italic" />
+        <On Platform="iOS" Value="Poppins-Italic" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="PoppinsSemiBold" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Poppins-SemiBold.ttf#Poppins-SemiBold" />
+        <On Platform="iOS" Value="Poppins-SemiBold" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="PoppinsSemiBoldItalic" x:TypeArguments="x:String">
+        <On Platform="Android" Value="Poppins-SemiBoldItalic.ttf#Poppins-SemiBoldItalic" />
+        <On Platform="iOS" Value="Poppins-SemiBoldItalic" />
+    </OnPlatform>
+
+    <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
+        <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
+        <On Platform="iOS" Value="Material Design Icons" />
+    </OnPlatform>
+
+</ResourceDictionary>

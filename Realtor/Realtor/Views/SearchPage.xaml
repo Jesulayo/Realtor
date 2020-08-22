@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.SearchPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource Blue}">
+
+    <Shell.TitleView>
+        <Grid>
+            <Frame
+                x:Name="searchBar"
+                Margin="0,0,15,0"
+                Padding="0"
+                CornerRadius="10"
+                HeightRequest="50"
+                IsClippedToBounds="True">
+                <SearchBar
+                    BackgroundColor="{StaticResource White}"
+                    CancelButtonColor="Red"
+                    FontFamily="{StaticResource PoppinsRegular}"
+                    FontSize="Small"
+                    Placeholder="Search by location or item"
+                    PlaceholderColor="{StaticResource LightBlue}" />
+            </Frame>
+            <BoxView Color="Transparent">
+                <BoxView.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateSearchCommand}" />
+                </BoxView.GestureRecognizers>
+            </BoxView>
+        </Grid>
+    </Shell.TitleView>
+
+    <!--<Shell.SearchHandler>
+        <SearchHandler
+            FontFamily="{StaticResource PoppinsRegular}"
+            FontSize="Small"
+            Placeholder="Search by location or item"
+            PlaceholderColor="{StaticResource LightBlue}"
+            TextColor="{StaticResource LightBlue}" />
+    </Shell.SearchHandler>-->
+
+    <RefreshView
+        Command="{Binding NavigateRefreshCommand}"
+        IsRefreshing="{Binding IsBusy}"
+        RefreshColor="{StaticResource LightBlue}">
+        <ScrollView>
+            <Grid Margin="20" RowSpacing="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackLayout Grid.Row="0" Margin="0,10,0,0">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToSeeAllHouseCommand}" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            HorizontalOptions="Start"
+                            Style="{StaticResource WhiteMediumBold}"
+                            Text="House" />
+                        <Label Style="{StaticResource WhiteSmallRegular}" Text="see all..." />
+                    </StackLayout>
+
+                    <CollectionView
+                        HeightRequest="250"
+                        HorizontalScrollBarVisibility="Never"
+                        ItemSizingStrategy="MeasureFirstItem"
+                        ItemTemplate="{StaticResource SearchPageTemplate}"
+                        ItemsSource="{Binding Houses}"
+                        SelectedItem="{Binding HouseSelection}"
+                        SelectionChangedCommand="{Binding NavigateHouseSelectionCommand}"
+                        SelectionMode="Single">
+                        
+                        <!--<CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <yummy:PancakeView
+                                    Padding="0"
+                                    BorderColor="{StaticResource Blue}"
+                                    BorderGradientAngle="300"
+                                    BorderGradientEndColor="{StaticResource Blue}"
+                                    BorderGradientStartColor="{StaticResource LightBlue}"
+                                    BorderThickness="5"
+                                    CornerRadius="10">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="2" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="30" />
+                                        </Grid.RowDefinitions>
+
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="0,0,0,0"
+                                            Aspect="Fill"
+                                            HorizontalOptions="Center"
+                                            Source="{Binding FirstImage}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="250" />
+                                        <BoxView Grid.Row="1" Color="{StaticResource White}" />
+                                        <Label
+                                            Grid.Row="2"
+                                            Padding="10,0,10,0"
+                                            Style="{StaticResource WhiteMediumBold}"
+                                            Text="{Binding ItemName}" />
+
+                                        <Grid Grid.Row="3" Margin="10,0,10,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Column="0"
+                                                HorizontalOptions="Start"
+                                                Style="{StaticResource WhiteMediumRegular}"
+                                                Text="{Binding Location}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                HorizontalOptions="End"
+                                                Style="{StaticResource WhiteMediumRegular}"
+                                                Text="{Binding ItemPrice}" />
+                                        </Grid>
+
+                                    </Grid>
+                                </yummy:PancakeView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>-->
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="1" Margin="0,0,0,0">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToSeeAllLandCommand}" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            HorizontalOptions="Start"
+                            Style="{StaticResource WhiteMediumBold}"
+                            Text="Land" />
+                        <Label Style="{StaticResource WhiteSmallRegular}" Text="see all..." />
+                    </StackLayout>
+
+                    <CollectionView
+                        HeightRequest="250"
+                        HorizontalScrollBarVisibility="Never"
+                        ItemSizingStrategy="MeasureFirstItem"
+                        ItemTemplate="{StaticResource SearchPageTemplate}"
+                        ItemsSource="{Binding Lands}"
+                        SelectedItem="{Binding LandSelection}"
+                        SelectionChangedCommand="{Binding NavigateLandSelectionCommand}"
+                        SelectionMode="Single">
+
+                        <!--<CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <yummy:PancakeView
+                                    Padding="0"
+                                    BorderColor="{StaticResource Blue}"
+                                    BorderGradientAngle="300"
+                                    BorderGradientEndColor="{StaticResource Blue}"
+                                    BorderGradientStartColor="{StaticResource LightBlue}"
+                                    BorderThickness="5"
+                                    CornerRadius="10">
+                                    <Grid RowSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="2" />
+                                            <RowDefinition Height="30" />
+                                            <RowDefinition Height="30" />
+                                        </Grid.RowDefinitions>
+
+                                        <Image
+                                            Grid.Row="0"
+                                            Margin="0,0,0,0"
+                                            Aspect="Fill"
+                                            HorizontalOptions="Center"
+                                            Source="{Binding FirstImage}"
+                                            VerticalOptions="Center"
+                                            WidthRequest="250" />
+                                        <BoxView Grid.Row="1" Color="{StaticResource White}" />
+                                        <Label
+                                            Grid.Row="2"
+                                            Padding="10,0,10,0"
+                                            Style="{StaticResource WhiteMediumBold}"
+                                            Text="{Binding ItemName}" />
+
+                                        <Grid Grid.Row="3" Margin="10,0,10,0">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label
+                                                Grid.Column="0"
+                                                HorizontalOptions="Start"
+                                                Style="{StaticResource WhiteMediumRegular}"
+                                                Text="{Binding Location}" />
+                                            <Label
+                                                Grid.Column="1"
+                                                HorizontalOptions="End"
+                                                Style="{StaticResource WhiteMediumRegular}"
+                                                Text="{Binding ItemPrice}" />
+                                        </Grid>
+
+                                    </Grid>
+                                </yummy:PancakeView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>-->
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </StackLayout>
+
+                <StackLayout Grid.Row="2" Margin="0,0,0,20">
+                    <StackLayout Orientation="Horizontal" Spacing="15">
+                        <StackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToSeeAllShopCommand}" NumberOfTapsRequired="1" />
+                        </StackLayout.GestureRecognizers>
+                        <Label
+                            HorizontalOptions="Start"
+                            Style="{StaticResource WhiteMediumBold}"
+                            Text="Shop" />
+                        <Label Style="{StaticResource WhiteSmallRegular}" Text="see all..." />
+                    </StackLayout>
+                    <CollectionView
+                        HeightRequest="250"
+                        HorizontalScrollBarVisibility="Never"
+                        ItemSizingStrategy="MeasureFirstItem"
+                        ItemTemplate="{StaticResource SearchPageTemplate}"
+                        ItemsSource="{Binding Shops}"
+                        SelectedItem="{Binding ShopSelection}"
+                        SelectionChangedCommand="{Binding NavigateShopSelectionCommand}"
+                        SelectionMode="Single">
+
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
+                        </CollectionView.ItemsLayout>
+                    </CollectionView>
+                </StackLayout>
+
+
+
+
+            </Grid>
+
+        </ScrollView>
+    </RefreshView>
+</ContentPage>

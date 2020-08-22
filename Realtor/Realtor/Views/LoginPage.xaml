@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.LoginPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:sk="clr-namespace:Xamarin.Forms.Skeleton;assembly=Xamarin.Forms.Skeleton"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    NavigationPage.HasNavigationBar="False">
+
+    <ScrollView>
+        <StackLayout Padding="20,70,20,20" BackgroundColor="{StaticResource Blue}">
+            <StackLayout Spacing="20">
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    Source="whitelogo.png"
+                    VerticalOptions="Center"
+                    WidthRequest="100" />
+                <Label
+                    FontSize="30"
+                    Style="{StaticResource WhiteLargeBold}"
+                    Text="LOGIN" />
+            </StackLayout>
+
+            <StackLayout Padding="0,30,0,0" Spacing="20">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+
+                    <material:MaterialTextField
+                        Grid.Row="0"
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="Transparent"
+                        FloatingPlaceholderColor="{StaticResource White}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Default"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Username"
+                        PlaceholderColor="{StaticResource White}"
+                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                        ReturnType="Next"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Username}"
+                        TextColor="{StaticResource White}"
+                        TextFontFamily="{StaticResource PoppinsRegular}"
+                        TintColor="{StaticResource White}"
+                        UnderlineColor="{StaticResource White}" />
+
+                    <material:MaterialTextField
+                        Grid.Row="1"
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="Transparent"
+                        FloatingPlaceholderColor="{StaticResource White}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Password"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Password"
+                        PlaceholderColor="{StaticResource White}"
+                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                        ReturnType="Send"
+                        ReturnCommand="{Binding NavigateToLogInCommand}"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Password}"
+                        TextColor="{StaticResource White}"
+                        TextFontFamily="{StaticResource PoppinsRegular}"
+                        TintColor="{StaticResource White}"
+                        UnderlineColor="{StaticResource White}" />
+
+                    <ActivityIndicator
+                        Grid.RowSpan="2"
+                        HorizontalOptions="Center"
+                        IsRunning="{Binding IsBusy}"
+                        VerticalOptions="Center"
+                        Color="{StaticResource LightBlue}" />
+
+                </Grid>
+
+
+                <Label
+                    HorizontalOptions="End"
+                    IsEnabled="{Binding IsNotBusy}"
+                    Style="{StaticResource LightBlueSmallRegular}"
+                    Text="Forgot Password?">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToForgotPasswordCommand}" NumberOfTapsRequired="1" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+
+            </StackLayout>
+
+            <StackLayout Padding="0,10,0,0">
+                <Button
+                    Command="{Binding NavigateToLogInCommand}"
+                    Style="{StaticResource LightBlueButton}"
+                    Text="LOGIN" />
+
+                <!--<StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <StackLayout
+                        HeightRequest="2"
+                        HorizontalOptions="EndAndExpand"
+                        VerticalOptions="Center">
+                        <BoxView
+                            HeightRequest="2"
+                            WidthRequest="100"
+                            Color="{StaticResource White}" />
+                    </StackLayout>
+                    <Label Style="{StaticResource WhiteMediumRegular}" Text="OR" />
+                    <StackLayout
+                        HeightRequest="2"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="Center">
+                        <BoxView
+                            HeightRequest="2"
+                            WidthRequest="100"
+                            Color="{StaticResource White}" />
+                    </StackLayout>
+                </StackLayout>
+
+                <Button Style="{StaticResource NoColorButton}" Text="LOGIN WITH GOOGLE" />
+
+                <Button Style="{StaticResource NoColorButton}" Text="LOGIN WITH FACEBOOK" />
+
+                <BoxView HeightRequest="2" Color="{StaticResource White}" />-->
+
+                <StackLayout HorizontalOptions="Center" Orientation="Horizontal">
+                    <Label Style="{StaticResource WhiteSmallRegular}" Text="Don't have an account yet?" />
+                    <Label
+                        Style="{StaticResource LightBlueSmallRegular}"
+                        Text="SIGN UP"
+                        TextDecorations="Underline">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToSignUpCommand}" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+
+            </StackLayout>
+
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

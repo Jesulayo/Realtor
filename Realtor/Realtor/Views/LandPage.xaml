@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.LandPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:model="clr-namespace:Realtor.Models"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource Blue}">
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{StaticResource Blue}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Column="0"
+                Padding="5,0,0,0"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="25"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.ArrowLeft}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigatePrevoiusPageCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                Grid.Column="1"
+                Padding="-30,0,0,0"
+                Style="{StaticResource WhiteMediumBold}"
+                Text="LAND" />
+        </Grid>
+       
+        <cv:CarouselViewControl
+            x:Name="cvLand"
+            Grid.Row="1"
+            AnimateTransition="True"
+            CurrentPageIndicatorTintColor="{StaticResource Blue}"
+            HorizontalOptions="Center"
+            IndicatorsShape="Circle"
+            IndicatorsTintColor="{StaticResource White}"
+            InterPageSpacing="0"
+            IsSwipeEnabled="True"
+            ItemsSource="{Binding LandAdverts}"
+            Orientation="Horizontal"
+            ShowIndicators="True"
+            VerticalOptions="Center">
+            <cv:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+
+                    <StackLayout
+                        HorizontalOptions="Center"
+                        Spacing="0"
+                        VerticalOptions="Center">
+                        <Image Aspect="AspectFill" Source="{Binding Image}" />
+
+                    </StackLayout>
+                </DataTemplate>
+            </cv:CarouselViewControl.ItemTemplate>
+        </cv:CarouselViewControl>
+
+
+        <RefreshView
+            Grid.Row="2"
+            Command="{Binding NavigateRefreshCommand}"
+            IsRefreshing="{Binding IsBusy}"
+            RefreshColor="{StaticResource LightBlue}">
+            <ScrollView>
+                <CollectionView
+                    Margin="0,20,0,20"
+                    HeightRequest="500"
+                    ItemSizingStrategy="MeasureFirstItem"
+                    ItemTemplate="{StaticResource HomePageItemTemplate}"
+                    ItemsSource="{Binding Lands}"
+                    SelectedItem="{Binding LandSelection}"
+                    SelectionChangedCommand="{Binding NavigateLandSelectionCommand}"
+                    SelectionMode="Single" />
+            </ScrollView>
+        </RefreshView>
+    </Grid>
+</ContentPage>

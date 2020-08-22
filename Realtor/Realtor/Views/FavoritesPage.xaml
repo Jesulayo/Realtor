@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.FavoritesPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:model="clr-namespace:Realtor.Models"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource Blue}">
+
+
+    <ContentPage.Resources>
+        <Style TargetType="Grid">
+            <Setter Property="VisualStateManager.VisualStateGroups">
+                <VisualStateGroupList>
+                    <VisualStateGroup x:Name="CommonStates">
+                        <VisualState x:Name="Normal" />
+                        <VisualState x:Name="Selected">
+                            <VisualState.Setters>
+                                <Setter Property="BackgroundColor" Value="{StaticResource Blue}" />
+                            </VisualState.Setters>
+                        </VisualState>
+                    </VisualStateGroup>
+                </VisualStateGroupList>
+            </Setter>
+        </Style>
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                Style="{StaticResource WhiteMediumBold}"
+                Text="{Binding Title}"
+                VerticalTextAlignment="Center" />
+
+            <Label
+                Grid.Column="1"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="30"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.ElectronFramework}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center" />
+
+        </Grid>
+
+        <!--<StackLayout Orientation="Horizontal">
+            <Label
+                Style="{StaticResource WhiteMediumBold}"
+                Text="{Binding Title}"
+                VerticalTextAlignment="Center" />
+        </StackLayout>-->
+    </Shell.TitleView>
+
+
+    <ScrollView>
+        <CollectionView
+            ItemTemplate="{StaticResource HomePageItemTemplate}"
+            ItemsSource="{Binding Buys}"
+            SelectedItem="{Binding BuySelection}"
+            SelectionChangedCommand="{Binding NavigateSelectionCommand}"
+            SelectionMode="Single" />
+
+    </ScrollView>
+
+</ContentPage>

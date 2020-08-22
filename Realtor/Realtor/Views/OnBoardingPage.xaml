@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.OnBoardingPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:cv="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:model="clr-namespace:Realtor.Models"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource Blue}"
+    NavigationPage.HasNavigationBar="False">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
+        </Grid.RowDefinitions>
+        <cv:CarouselViewControl
+            x:Name="cvWalk"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            AnimateTransition="True"
+            CurrentPageIndicatorTintColor="{StaticResource Blue}"
+            HorizontalOptions="Center"
+            IndicatorsShape="Circle"
+            IndicatorsTintColor="{StaticResource White}"
+            InterPageSpacing="0"
+            IsSwipeEnabled="True"
+            ItemsSource="{Binding Welcomes}"
+            Orientation="Horizontal"
+            ShowIndicators="True"
+            VerticalOptions="Center">
+            <cv:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+
+                    <StackLayout
+                        Padding="10,180,10,0"
+                        HorizontalOptions="Center"
+                        Spacing="0"
+                        VerticalOptions="Center">
+                        <Image
+                            HeightRequest="100"
+                            Source="{Binding Image}"
+                            WidthRequest="100" />
+                        <Label Style="{StaticResource WhiteLargeBold}" Text="{Binding Heading}" />
+                        <Label
+                            Padding="20,30,20,0"
+                            FontSize="Small"
+                            LineBreakMode="CharacterWrap"
+                            Style="{StaticResource WhiteMediumRegular}"
+                            Text="{Binding Description}" />
+
+
+                    </StackLayout>
+                </DataTemplate>
+            </cv:CarouselViewControl.ItemTemplate>
+        </cv:CarouselViewControl>
+
+        <!--<Button
+            Grid.Row="1"
+            Command="{Binding NavigateToLoginCommand}"
+            HorizontalOptions="Center"
+            Style="{StaticResource WhiteButton}"
+            Text="SKIP"
+            TranslationY="-40"
+            VerticalOptions="End" />-->
+
+        <Label
+            Grid.Row="1"
+            FontFamily="{StaticResource MaterialFontFamily}"
+            FontSize="30"
+            HorizontalTextAlignment="Center"
+            Text="{x:Static model:IconFont.ChevronRightCircleOutline}"
+            TextColor="{StaticResource White}"
+            TranslationY="-85"
+            VerticalOptions="End"
+            VerticalTextAlignment="End">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding NavigateToLoginCommand}" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+        </Label>
+    </Grid>
+
+</ContentPage>

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.ProfilePage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:material="clr-namespace:XF.Material.Forms.UI;assembly=XF.Material"
+    xmlns:model="clr-namespace:Realtor.Models"
+    xmlns:prism="http://prismlibrary.com"
+    xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+    prism:ViewModelLocator.AutowireViewModel="True"
+    BackgroundColor="{StaticResource Blue}">
+
+    <Shell.TitleView>
+        <Grid Padding="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+                <ColumnDefinition Width="40" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                Grid.Column="0"
+                HorizontalOptions="Start"
+                Style="{StaticResource WhiteMediumBold}"
+                Text="{Binding Title}"
+                VerticalTextAlignment="Center" />
+
+            <Label
+                Grid.Column="1"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="40"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.AccountEdit}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateEditProfileCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                Grid.Column="2"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="35"
+                HorizontalTextAlignment="Center"
+                IsEnabled="{Binding IsNotBusy}"
+                Text="{x:Static model:IconFont.ContentSaveEdit}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateUpdateUserCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+            <Label
+                Grid.Column="3"
+                FontFamily="{StaticResource MaterialFontFamily}"
+                FontSize="35"
+                HorizontalTextAlignment="Center"
+                Text="{x:Static model:IconFont.Logout}"
+                TextColor="{StaticResource White}"
+                VerticalTextAlignment="Center">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateLogoutCommand}" NumberOfTapsRequired="1" />
+                </Label.GestureRecognizers>
+            </Label>
+
+
+
+
+
+        </Grid>
+        <!--<StackLayout Orientation="Horizontal">
+            <Label
+                Style="{StaticResource WhiteMediumBold}"
+                Text="Profile"
+                VerticalTextAlignment="Center" />
+        </StackLayout>-->
+    </Shell.TitleView>
+
+    <RefreshView
+        Command="{Binding NavigateRefreshCommand}"
+        IsRefreshing="{Binding IsBusy}"
+        RefreshColor="{Binding LightBlue}">
+
+        <ScrollView Padding="10,20,10,30">
+            <Grid RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="130" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Frame
+                    Grid.Row="0"
+                    Padding="0"
+                    BorderColor="{StaticResource White}"
+                    CornerRadius="50"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    IsClippedToBounds="True"
+                    VerticalOptions="Center"
+                    WidthRequest="100">
+                    <Image
+                        HorizontalOptions="FillAndExpand"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Source="{Binding Avatar.Source}"
+                        VerticalOptions="FillAndExpand">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateProfilePictureCommand}" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Frame>
+
+
+                <yummy:PancakeView
+                    Grid.Row="1"
+                    Padding="0"
+                    CornerRadius="10">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource Blue}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Default"
+                        IsEnabled="False"
+                        Placeholder="Username"
+                        PlaceholderColor="{StaticResource Blue}"
+                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                        ReturnType="Done"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Username}"
+                        TextColor="{StaticResource Blue}"
+                        TextFontFamily="{StaticResource PoppinsRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource Blue}"
+                        UnderlineColor="{StaticResource Blue}" />
+                </yummy:PancakeView>
+
+
+                <yummy:PancakeView
+                    Grid.Row="2"
+                    Padding="0"
+                    CornerRadius="10">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource Blue}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Default"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Company Name"
+                        PlaceholderColor="{StaticResource Blue}"
+                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                        ReturnType="Done"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding CompanyName}"
+                        TextColor="{StaticResource Blue}"
+                        TextFontFamily="{StaticResource PoppinsRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource Blue}"
+                        UnderlineColor="{StaticResource Blue}" />
+                </yummy:PancakeView>
+
+
+                <Grid Grid.Row="3" ColumnSpacing="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <yummy:PancakeView
+                        Grid.Column="0"
+                        Padding="0"
+                        CornerRadius="10">
+                        <material:MaterialTextField
+                            AlwaysShowUnderline="True"
+                            BackgroundColor="{StaticResource White}"
+                            FloatingPlaceholderColor="{StaticResource Blue}"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Telephone"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Placeholder="Phone Number"
+                            PlaceholderColor="{StaticResource Blue}"
+                            PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                            ReturnType="Done"
+                            ShouldAnimateUnderline="True"
+                            Text="{Binding PhoneNumber}"
+                            TextColor="{StaticResource Blue}"
+                            TextFontFamily="{StaticResource PoppinsRegular}"
+                            TextFontSize="15"
+                            TintColor="{StaticResource Blue}"
+                            UnderlineColor="{StaticResource Blue}" />
+                    </yummy:PancakeView>
+
+                    <yummy:PancakeView
+                        Grid.Column="1"
+                        Padding="0"
+                        CornerRadius="10">
+                        <material:MaterialTextField
+                            AlwaysShowUnderline="True"
+                            BackgroundColor="{StaticResource White}"
+                            FloatingPlaceholderColor="{StaticResource Blue}"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Telephone"
+                            IsEnabled="{Binding IsNotBusy}"
+                            Placeholder="Alternate Phone Number"
+                            PlaceholderColor="{StaticResource Blue}"
+                            PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                            ReturnType="Done"
+                            ShouldAnimateUnderline="True"
+                            Text="{Binding AlternatePhoneNumber}"
+                            TextColor="{StaticResource Blue}"
+                            TextFontFamily="{StaticResource PoppinsRegular}"
+                            TextFontSize="15"
+                            TintColor="{StaticResource Blue}"
+                            UnderlineColor="{StaticResource Blue}" />
+                    </yummy:PancakeView>
+
+                </Grid>
+
+                <yummy:PancakeView
+                    Grid.Row="4"
+                    Padding="0"
+                    CornerRadius="10">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource Blue}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Default"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="Address"
+                        PlaceholderColor="{StaticResource Blue}"
+                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                        ReturnType="Done"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Address}"
+                        TextColor="{StaticResource Blue}"
+                        TextFontFamily="{StaticResource PoppinsRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource Blue}"
+                        UnderlineColor="{StaticResource Blue}" />
+                </yummy:PancakeView>
+
+                <yummy:PancakeView
+                    Grid.Row="5"
+                    Padding="0"
+                    CornerRadius="10">
+                    <material:MaterialTextField
+                        AlwaysShowUnderline="True"
+                        BackgroundColor="{StaticResource White}"
+                        FloatingPlaceholderColor="{StaticResource Blue}"
+                        FloatingPlaceholderEnabled="True"
+                        InputType="Email"
+                        IsEnabled="{Binding IsNotBusy}"
+                        Placeholder="E-mail"
+                        PlaceholderColor="{StaticResource Blue}"
+                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                        ReturnType="Done"
+                        ShouldAnimateUnderline="True"
+                        Text="{Binding Email}"
+                        TextColor="{StaticResource Blue}"
+                        TextFontFamily="{StaticResource PoppinsRegular}"
+                        TextFontSize="15"
+                        TintColor="{StaticResource Blue}"
+                        UnderlineColor="{StaticResource Blue}" />
+                </yummy:PancakeView>
+
+
+                <Grid
+                    Grid.Row="6"
+                    Padding="0,20,0,0"
+                    HeightRequest="50"
+                    VerticalOptions="Center">
+                    <yummy:PancakeView
+                        BorderColor="{StaticResource White}"
+                        BorderThickness="5"
+                        CornerRadius="20"
+                        HorizontalOptions="Start"
+                        WidthRequest="120">
+                        <StackLayout
+                            HorizontalOptions="Center"
+                            MinimumHeightRequest="80"
+                            Orientation="Horizontal">
+                            <Label Style="{StaticResource WhiteSmallRegular}" Text="My Uploads">
+                                <Label.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateMyUploadCommand}" NumberOfTapsRequired="1" />
+                                </Label.GestureRecognizers>
+                            </Label>
+                            <!--<Label
+                        FontFamily="{StaticResource MaterialFontFamily}"
+                        FontSize="20"
+                        Text="{x:Static model:IconFont.FileCancel}"
+                        TextColor="{StaticResource White}"
+                        VerticalTextAlignment="Center" />-->
+                        </StackLayout>
+                    </yummy:PancakeView>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </RefreshView>
+</ContentPage>

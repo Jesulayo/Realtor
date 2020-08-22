@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Realtor.Views.TestingMagicPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:magic="clr-namespace:MagicGradients;assembly=MagicGradients"
+    xmlns:prism="http://prismlibrary.com"
+    prism:ViewModelLocator.AutowireViewModel="True">
+
+    <magic:GradientView HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <magic:GradientView.GradientSource>
+            <magic:GradientCollection>
+                <magic:RadialGradient
+                    Center="0.5,0.5"
+                    Shape="Circle"
+                    Size="ClosestSide">
+                    <magic:GradientStop Offset="0" Color="{StaticResource White}" />
+                    <magic:GradientStop Offset="0.2" Color="{StaticResource Blue}" />
+                    <magic:GradientStop Offset="0.4" Color="{StaticResource White}" />
+                    <magic:GradientStop Offset="0.6" Color="{StaticResource Blue}" />
+                    <magic:GradientStop Offset="0.8" Color="{StaticResource White}" />
+                    <magic:GradientStop Offset="1" Color="{StaticResource Blue}" />
+                </magic:RadialGradient>
+                <magic:LinearGradient Angle="45">
+                    <magic:GradientStop Offset="0" Color="#14DEDEDE" />
+                    <magic:GradientStop Offset="0.5" Color="#14DEDEDE" />
+                    <magic:GradientStop Offset="0.5" Color="#14000000" />
+                    <magic:GradientStop Offset="1" Color="#14000000" />
+                </magic:LinearGradient>
+            </magic:GradientCollection>
+        </magic:GradientView.GradientSource>
+    </magic:GradientView>
+</ContentPage>
