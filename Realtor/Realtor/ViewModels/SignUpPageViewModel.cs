@@ -75,12 +75,9 @@ namespace Realtor.ViewModels
             set { SetProperty(ref isNotBusy, value); }
         }
 
-
-        //private DelegateCommand _delegateCommandNext;
         private DelegateCommand _delegateLogInCommand;
         private DelegateCommand _delegateSignUpCommand;
 
-        //public DelegateCommand NavigateToNextCommand => _delegateCommandNext ?? (_delegateCommandNext = new DelegateCommand(ExecuteNavigateToNextCommand));
         public DelegateCommand NavigateToLogInCommand => _delegateLogInCommand ?? (_delegateLogInCommand = new DelegateCommand(ExecuteNavigateToLogInCommand));
         public DelegateCommand NavigateToSignUpCommand => _delegateSignUpCommand ?? (_delegateSignUpCommand = new DelegateCommand(ExecuteNavigateToSignUpCommand));
 
@@ -100,11 +97,6 @@ namespace Realtor.ViewModels
             TintColor = Color.Red.MultiplyAlpha(0.8),
 
         };
-
-        //private async void ExecuteNavigateToNextCommand()
-        //{
-        //    await NavigationService.NavigateAsync("AlmostDonePage");
-        //}
 
         private async void ExecuteNavigateToLogInCommand()
         {

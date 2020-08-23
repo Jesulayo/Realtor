@@ -76,13 +76,7 @@ namespace Realtor.ViewModels
                 var realtorProperty =  await remoteService.GetAllProperty();
                 IsBusy = false;
                 RealtorData.Clear();
-                //for (int i = 0; i > realtorProperty.Count; i++)
-                //{
-                //    RealtorData.Add(realtorProperty[i]);
-
-                //}
-
-
+                
                 foreach (var item in realtorProperty)
                 {
                     RealtorData.Add(item);

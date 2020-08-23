@@ -56,15 +56,6 @@
             </cv:CarouselViewControl.ItemTemplate>
         </cv:CarouselViewControl>
 
-        <!--<Button
-            Grid.Row="1"
-            Command="{Binding NavigateToLoginCommand}"
-            HorizontalOptions="Center"
-            Style="{StaticResource WhiteButton}"
-            Text="SKIP"
-            TranslationY="-40"
-            VerticalOptions="End" />-->
-
         <Label
             Grid.Row="1"
             FontFamily="{StaticResource MaterialFontFamily}"

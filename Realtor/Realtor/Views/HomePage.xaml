@@ -10,7 +10,7 @@
     prism:ViewModelLocator.AutowireViewModel="True"
     BackgroundColor="{StaticResource Blue}">
 
-    
+
     <Shell.TitleView>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -39,7 +39,7 @@
     </Shell.TitleView>
 
 
-   
+
     <RefreshView
         Margin="0,0,0,4"
         Command="{Binding NavigateRefreshCommand}"
@@ -51,8 +51,7 @@
                 ItemsSource="{Binding RealtorData}"
                 SelectedItem="{Binding RealtorDataSelection}"
                 SelectionChangedCommand="{Binding NavigateSelectionCommand}"
-                SelectionMode="Single">
-            </CollectionView>
+                SelectionMode="Single" />
 
         </ScrollView>
     </RefreshView>

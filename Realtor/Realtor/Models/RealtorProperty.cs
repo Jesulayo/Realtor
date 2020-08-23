@@ -12,7 +12,6 @@ namespace Realtor.Models
         public string ItemName { get; set; }
         public decimal ItemPrice { get; set; }
         public string Description { get; set; }
-        //public string LongDescription { get; set; }
         public string Location { get; set; }
         public string ItemType { get; set; }
         public bool Negotiable { get; set; }

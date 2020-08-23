@@ -34,15 +34,6 @@
         </Grid>
     </Shell.TitleView>
 
-    <!--<Shell.SearchHandler>
-        <SearchHandler
-            FontFamily="{StaticResource PoppinsRegular}"
-            FontSize="Small"
-            Placeholder="Search by location or item"
-            PlaceholderColor="{StaticResource LightBlue}"
-            TextColor="{StaticResource LightBlue}" />
-    </Shell.SearchHandler>-->
-
     <RefreshView
         Command="{Binding NavigateRefreshCommand}"
         IsRefreshing="{Binding IsBusy}"
@@ -76,63 +67,6 @@
                         SelectedItem="{Binding HouseSelection}"
                         SelectionChangedCommand="{Binding NavigateHouseSelectionCommand}"
                         SelectionMode="Single">
-                        
-                        <!--<CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <yummy:PancakeView
-                                    Padding="0"
-                                    BorderColor="{StaticResource Blue}"
-                                    BorderGradientAngle="300"
-                                    BorderGradientEndColor="{StaticResource Blue}"
-                                    BorderGradientStartColor="{StaticResource LightBlue}"
-                                    BorderThickness="5"
-                                    CornerRadius="10">
-                                    <Grid RowSpacing="0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="2" />
-                                            <RowDefinition Height="30" />
-                                            <RowDefinition Height="30" />
-                                        </Grid.RowDefinitions>
-
-                                        <Image
-                                            Grid.Row="0"
-                                            Margin="0,0,0,0"
-                                            Aspect="Fill"
-                                            HorizontalOptions="Center"
-                                            Source="{Binding FirstImage}"
-                                            VerticalOptions="Center"
-                                            WidthRequest="250" />
-                                        <BoxView Grid.Row="1" Color="{StaticResource White}" />
-                                        <Label
-                                            Grid.Row="2"
-                                            Padding="10,0,10,0"
-                                            Style="{StaticResource WhiteMediumBold}"
-                                            Text="{Binding ItemName}" />
-
-                                        <Grid Grid.Row="3" Margin="10,0,10,0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-
-                                            <Label
-                                                Grid.Column="0"
-                                                HorizontalOptions="Start"
-                                                Style="{StaticResource WhiteMediumRegular}"
-                                                Text="{Binding Location}" />
-                                            <Label
-                                                Grid.Column="1"
-                                                HorizontalOptions="End"
-                                                Style="{StaticResource WhiteMediumRegular}"
-                                                Text="{Binding ItemPrice}" />
-                                        </Grid>
-
-                                    </Grid>
-                                </yummy:PancakeView>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>-->
-
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
                         </CollectionView.ItemsLayout>
@@ -160,63 +94,6 @@
                         SelectedItem="{Binding LandSelection}"
                         SelectionChangedCommand="{Binding NavigateLandSelectionCommand}"
                         SelectionMode="Single">
-
-                        <!--<CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <yummy:PancakeView
-                                    Padding="0"
-                                    BorderColor="{StaticResource Blue}"
-                                    BorderGradientAngle="300"
-                                    BorderGradientEndColor="{StaticResource Blue}"
-                                    BorderGradientStartColor="{StaticResource LightBlue}"
-                                    BorderThickness="5"
-                                    CornerRadius="10">
-                                    <Grid RowSpacing="0">
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="*" />
-                                            <RowDefinition Height="2" />
-                                            <RowDefinition Height="30" />
-                                            <RowDefinition Height="30" />
-                                        </Grid.RowDefinitions>
-
-                                        <Image
-                                            Grid.Row="0"
-                                            Margin="0,0,0,0"
-                                            Aspect="Fill"
-                                            HorizontalOptions="Center"
-                                            Source="{Binding FirstImage}"
-                                            VerticalOptions="Center"
-                                            WidthRequest="250" />
-                                        <BoxView Grid.Row="1" Color="{StaticResource White}" />
-                                        <Label
-                                            Grid.Row="2"
-                                            Padding="10,0,10,0"
-                                            Style="{StaticResource WhiteMediumBold}"
-                                            Text="{Binding ItemName}" />
-
-                                        <Grid Grid.Row="3" Margin="10,0,10,0">
-                                            <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*" />
-                                                <ColumnDefinition Width="*" />
-                                            </Grid.ColumnDefinitions>
-
-                                            <Label
-                                                Grid.Column="0"
-                                                HorizontalOptions="Start"
-                                                Style="{StaticResource WhiteMediumRegular}"
-                                                Text="{Binding Location}" />
-                                            <Label
-                                                Grid.Column="1"
-                                                HorizontalOptions="End"
-                                                Style="{StaticResource WhiteMediumRegular}"
-                                                Text="{Binding ItemPrice}" />
-                                        </Grid>
-
-                                    </Grid>
-                                </yummy:PancakeView>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>-->
-
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
                         </CollectionView.ItemsLayout>
@@ -243,7 +120,6 @@
                         SelectedItem="{Binding ShopSelection}"
                         SelectionChangedCommand="{Binding NavigateShopSelectionCommand}"
                         SelectionMode="Single">
-
                         <CollectionView.ItemsLayout>
                             <GridItemsLayout HorizontalItemSpacing="10" Orientation="Horizontal" />
                         </CollectionView.ItemsLayout>

@@ -24,8 +24,6 @@ namespace Realtor.ViewModels
         public DelegateCommand NavigateRefreshCommand => _delegateRefreshCommand ?? (_delegateRefreshCommand = new DelegateCommand(GetMyUploads));
         public DelegateCommand NavigatePrevoiusPageCommand => _delegatePreviousPageCommand ?? (_delegatePreviousPageCommand = new DelegateCommand(PreviousPage));
 
-
-        //public ObservableCollection<Buy> MyUploads { get => GetMyUploads(); }
         private bool isBusy;
 
         public bool IsBusy
@@ -75,8 +73,6 @@ namespace Realtor.ViewModels
 
                     }
                 }
-
-                //int a = MyUploads.Count;
             }
             catch (Exception ex)
             {

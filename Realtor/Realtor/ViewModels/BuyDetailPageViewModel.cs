@@ -24,16 +24,7 @@ namespace Realtor.ViewModels
         public DelegateCommand NavigateEmailCommand => _delegateEmailCommand ?? (_delegateEmailCommand = new DelegateCommand(SendEmail));
         public DelegateCommand NavigatePrevoiusPageCommand => _delegatePreviousPageCommand ?? (_delegatePreviousPageCommand = new DelegateCommand(PreviousPage));
 
-        
-        //private DelegateCommand _delegateCommandCall;
-
-        //public DelegateCommand NavigateToCall => _delegateCommandCall ?? (_delegateCommandCall = new DelegateCommand(ExecuteNavigateToCall));
-
-        //private void ExecuteNavigateToCall()
-        //{
-        //    NavigationService.NavigateAsync("SignUpPage");
-        //}
-
+     
         private void ExecuteNavigateToSignUpCommand()
         {
             NavigationService.NavigateAsync("SignUpPage");

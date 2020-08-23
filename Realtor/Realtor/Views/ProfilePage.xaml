@@ -71,12 +71,6 @@
 
 
         </Grid>
-        <!--<StackLayout Orientation="Horizontal">
-            <Label
-                Style="{StaticResource WhiteMediumBold}"
-                Text="Profile"
-                VerticalTextAlignment="Center" />
-        </StackLayout>-->
     </Shell.TitleView>
 
     <RefreshView
@@ -293,12 +287,6 @@
                                     <TapGestureRecognizer Command="{Binding NavigateMyUploadCommand}" NumberOfTapsRequired="1" />
                                 </Label.GestureRecognizers>
                             </Label>
-                            <!--<Label
-                        FontFamily="{StaticResource MaterialFontFamily}"
-                        FontSize="20"
-                        Text="{x:Static model:IconFont.FileCancel}"
-                        TextColor="{StaticResource White}"
-                        VerticalTextAlignment="Center" />-->
                         </StackLayout>
                     </yummy:PancakeView>
                 </Grid>

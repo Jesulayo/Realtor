@@ -40,25 +40,16 @@ namespace Realtor
             containerRegistry.RegisterForNavigation<OnBoardingPage, OnBoardingPageViewModel>();
             containerRegistry.RegisterForNavigation<ForgotPasswordPage, ForgotPasswordPageViewModel>();
             containerRegistry.RegisterForNavigation<SignUpPage, SignUpPageViewModel>();
-            containerRegistry.RegisterForNavigation<AlmostDonePage, AlmostDonePageViewModel>();
             containerRegistry.RegisterForNavigation<HomePage, HomePageViewModel>();
             containerRegistry.RegisterForNavigation<SearchPage, SearchPageViewModel>();
             containerRegistry.RegisterForNavigation<UploadPage, UploadPageViewModel>();
-            containerRegistry.RegisterForNavigation<FavoritesPage, FavoritesPageViewModel>();
             containerRegistry.RegisterForNavigation<HousePage, HousePageViewModel>();
-            containerRegistry.RegisterForNavigation<HouseDetailPage, HouseDetailPageViewModel>();
-            containerRegistry.RegisterForNavigation<TestingPage, TestingPageViewModel>();
             containerRegistry.RegisterForNavigation<BuyDetailPage, BuyDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<ProfilePage, ProfilePageViewModel>();
-            containerRegistry.RegisterForNavigation<LandDetailPage, LandDetailPageViewModel>();
-            containerRegistry.RegisterForNavigation<ShopDetailPage, ShopDetailPageViewModel>();
             containerRegistry.RegisterForNavigation<LandPage, LandPageViewModel>();
             containerRegistry.RegisterForNavigation<ShopPage, ShopPageViewModel>();
             containerRegistry.RegisterForNavigation<MyUploadPage, MyUploadPageViewModel>();
             containerRegistry.RegisterForNavigation<MyUploadDetailPage, MyUploadDetailPageViewModel>();
-            containerRegistry.RegisterForNavigation<TestingMagicPage, TestingMagicPageViewModel>();
-            containerRegistry.RegisterForNavigation<UploadPicturePage, UploadPicturePageViewModel>();
-            containerRegistry.RegisterForNavigation<EditProfilePage, EditProfilePageViewModel>();
             containerRegistry.RegisterForNavigation<MainSearchPage, MainSearchPageViewModel>();
         }
 

@@ -41,10 +41,6 @@ namespace Realtor.ViewModels
         public ObservableCollection<RealtorProperty> Lands { get; set; }
         public ObservableCollection<RealtorProperty> Shops { get; set; }
 
-        
-
-        //public ObservableCollection<Welcome> Welcomes { get => GetWelcomes(); }
-
 
         private RealtorProperty houseSelection;
         public RealtorProperty HouseSelection

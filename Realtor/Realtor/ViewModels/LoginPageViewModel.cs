@@ -17,16 +17,10 @@ namespace Realtor.ViewModels
     public class LoginPageViewModel : ViewModelBase
     {
         RemoteService remoteService;
-        //private double backgroundOpacity;
         private string username;
         private string password;
         private bool isBusy;
         private bool isNotBusy = true;
-        //public double BackgroundOpacity
-        //{
-        //    get { return backgroundOpacity; }
-        //    set { SetProperty(ref backgroundOpacity, value); }
-        //}
         public string Username
         {
             get { return username; }
@@ -95,8 +89,6 @@ namespace Realtor.ViewModels
                 return;
             }
 
-            //BackgroundOpacity = 0.8;
-
             IsBusy = true;
             IsNotBusy = false;
             var login = new Login()
@@ -109,7 +101,6 @@ namespace Realtor.ViewModels
 
             IsBusy = false;
             IsNotBusy = true;
-            //backgroundOpacity = 1;
             if (user != null)
             {
                 Settings.CompanyNameSettings = user.CompanyName;

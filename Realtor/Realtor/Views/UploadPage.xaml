@@ -36,12 +36,6 @@
                 VerticalTextAlignment="Center" />
 
         </Grid>
-        <!--<StackLayout Orientation="Horizontal">
-            <Label
-                Style="{StaticResource WhiteMediumBold}"
-                Text="Upload"
-                VerticalTextAlignment="Center" />
-        </StackLayout>-->
     </Shell.TitleView>
 
     <Grid>
@@ -76,12 +70,12 @@
                         FloatingPlaceholderColor="{StaticResource White}"
                         FloatingPlaceholderEnabled="True"
                         InputType="Default"
-                        Text="{Binding ItemName}"
                         Placeholder="Item Name"
                         PlaceholderColor="{StaticResource White}"
                         PlaceholderFontFamily="{StaticResource PoppinsRegular}"
                         ReturnType="Next"
                         ShouldAnimateUnderline="True"
+                        Text="{Binding ItemName}"
                         TextColor="{StaticResource White}"
                         TextFontFamily="{StaticResource PoppinsRegular}"
                         TextFontSize="15"
@@ -102,11 +96,11 @@
                         FloatingPlaceholderEnabled="True"
                         InputType="Default"
                         Placeholder="Location"
-                        Text="{Binding Location}"
                         PlaceholderColor="{StaticResource White}"
                         PlaceholderFontFamily="{StaticResource PoppinsRegular}"
                         ReturnType="Next"
                         ShouldAnimateUnderline="True"
+                        Text="{Binding Location}"
                         TextColor="{StaticResource White}"
                         TextFontFamily="{StaticResource PoppinsRegular}"
                         TextFontSize="15"
@@ -126,11 +120,11 @@
                         FloatingPlaceholderEnabled="True"
                         InputType="Numeric"
                         Placeholder="Price"
-                        Text="{Binding Price}"
                         PlaceholderColor="{StaticResource White}"
                         PlaceholderFontFamily="{StaticResource PoppinsRegular}"
                         ReturnType="Next"
                         ShouldAnimateUnderline="True"
+                        Text="{Binding Price}"
                         TextColor="{StaticResource White}"
                         TextFontFamily="{StaticResource PoppinsRegular}"
                         TextFontSize="15"
@@ -150,18 +144,18 @@
                         FloatingPlaceholderEnabled="True"
                         InputType="Default"
                         Placeholder="Description"
-                        Text="{Binding Description}"
                         PlaceholderColor="{StaticResource White}"
                         PlaceholderFontFamily="{StaticResource PoppinsRegular}"
                         ReturnType="Next"
                         ShouldAnimateUnderline="True"
+                        Text="{Binding Description}"
                         TextColor="{StaticResource White}"
                         TextFontFamily="{StaticResource PoppinsRegular}"
                         TextFontSize="15"
                         TintColor="{StaticResource White}"
                         UnderlineColor="{StaticResource White}" />
                 </yummy:PancakeView>
-                
+
                 <yummy:PancakeView
                     Padding="0"
                     BorderColor="{StaticResource White}"
@@ -174,11 +168,11 @@
                         FloatingPlaceholderEnabled="True"
                         InputType="Default"
                         Placeholder="Property Type"
-                        Text="{Binding Type}"
                         PlaceholderColor="{StaticResource White}"
                         PlaceholderFontFamily="{StaticResource PoppinsRegular}"
                         ReturnType="Next"
                         ShouldAnimateUnderline="True"
+                        Text="{Binding Type}"
                         TextColor="{StaticResource White}"
                         TextFontFamily="{StaticResource PoppinsRegular}"
                         TextFontSize="15"
@@ -201,8 +195,8 @@
                         PlaceholderColor="{StaticResource White}"
                         PlaceholderFontFamily="{StaticResource PoppinsRegular}"
                         ReturnType="Next"
-                        Text="{Binding Negotiable}"
                         ShouldAnimateUnderline="True"
+                        Text="{Binding Negotiable}"
                         TextColor="{StaticResource White}"
                         TextFontFamily="{StaticResource PoppinsRegular}"
                         TextFontSize="15"
@@ -261,7 +255,12 @@
                         </Image.GestureRecognizers>
                     </Image>
 
-                    <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Upload" Style="{StaticResource WhiteButton}" Command="{Binding NavigateUploadCommand}"/>
+                    <Button
+                        Grid.Row="2"
+                        Grid.ColumnSpan="2"
+                        Command="{Binding NavigateUploadCommand}"
+                        Style="{StaticResource WhiteButton}"
+                        Text="Upload" />
 
 
                 </Grid>
@@ -277,7 +276,7 @@
             Style="{StaticResource WhiteMediumRegular}"
             Text="Meet your buyers" />
 
-        
+
 
     </Grid>
 </ContentPage>
