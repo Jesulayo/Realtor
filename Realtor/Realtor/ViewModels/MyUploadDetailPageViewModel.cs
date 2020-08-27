@@ -18,7 +18,7 @@ namespace Realtor.ViewModels
         private decimal itemPrice;
         private string description;
         private string location;
-        private bool negotiable;
+        private string negotiable;
         private string seller;
 
         private DelegateCommand _delegateCallCommand;
@@ -62,7 +62,7 @@ namespace Realtor.ViewModels
             get { return location; }
             set { SetProperty(ref location, value); }
         }
-        public bool Negotiable
+        public string Negotiable
         {
             get { return negotiable; }
             set { SetProperty(ref negotiable, value); }

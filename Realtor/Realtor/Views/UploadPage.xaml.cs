@@ -1,6 +1,9 @@
 ﻿using Plugin.Media;
 using Plugin.Media.Abstractions;
+using System;
+using System.Collections.Generic;
 using Xamarin.Forms;
+using XF.Material.Forms.UI.Dialogs;
 
 namespace Realtor.Views
 {
@@ -9,75 +12,65 @@ namespace Realtor.Views
         public UploadPage()
         {
             InitializeComponent();
+
+            //Opendialog.Clicked += Opendialog_Clicked;
         }
 
-        //private async void FrontImage_Tapped(object sender, System.EventArgs e)
+        //private async void Opendialog_Clicked(object sender, EventArgs e)
         //{
-        //    await CrossMedia.Current.Initialize();
-
-            
-        //    bool choice = await DisplayAlert("Confirm", "Where do you want to select your image from", "Camera", "Gallery");
-
-        //    if (choice)
+        //    var choices = new List<string>
         //    {
-        //        if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-        //        {
-        //            await DisplayAlert("Error", "Camera not supported", "OK");
-        //            return;
-        //        }
+        //        "choice 1",
+        //        "choice 2",
+        //        "choice 3",
+        //    };
 
-        //        var mediaFile = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions
-        //        {
-        //            PhotoSize = PhotoSize.Large
-        //        });
+        //    var choice = await MaterialDialog.Instance.SelectChoiceAsync("Select choices", choices);
 
-        //        if (mediaFile == null)
-        //        {
-        //            await DisplayAlert("Error", "Camera not supported", "OK");
-        //            return;
-        //        }
-
-
-        //        frontImage.Source = ImageSource.FromStream(() =>
-        //        {
-        //            var stream = mediaFile.GetStream();
-        //            mediaFile.Dispose();
-        //            return stream;
-        //        });
-        //    }
-        //    else
+        //    if (choice < 0)
         //    {
-
-        //        if (!CrossMedia.Current.IsPickPhotoSupported)
-        //        {
-        //            await DisplayAlert("Error", "Pick photo not supported", "OK");
-        //            return;
-        //        }
-
-        //        var mediaOptions = new PickMediaOptions()
-        //        {
-        //            PhotoSize = PhotoSize.Large
-        //        };
-
-
-        //        var file = await CrossMedia.Current.PickPhotoAsync(mediaOptions);
-
-        //        if (file == null)
-        //        {
-        //            await DisplayAlert("Error", "Pick photo not supported", "OK");
-        //            return;
-        //        }
-
-        //        frontImage.Source = ImageSource.FromStream(() =>
-        //        {
-        //            var stream = file.GetStream();
-        //            file.Dispose();
-        //            return stream;
-        //        });
+        //        return;
         //    }
+
+        //    DialogResult.Text = choices[choice];
         //}
 
+        private async void Opendialog_Tapped(object sender, EventArgs e)
+        {
+            var choices = new List<string>
+            {
+                "true",
+                "false"
+            };
 
-      
+            var choice = await MaterialDialog.Instance.SelectChoiceAsync("Negotiable", choices, confirmingText: "Ok", dismissiveText: "");
+
+            if (choice < 0)
+            {
+                return;
+            }
+
+            DialogResults.Text = choices[choice];
+        }
+
+        private async void PropertyType_Tapped(object sender, EventArgs e)
+        {
+            var propertyType = new List<string>
+            {
+                "Land",
+                "House",
+                "Shop"
+            };
+
+            var choice = await MaterialDialog.Instance.SelectChoiceAsync("Property", propertyType);
+
+            if (choice < 0)
+            {
+                return;
+            }
+
+            Property.Text = propertyType[choice];
+
+        }
     }
 }

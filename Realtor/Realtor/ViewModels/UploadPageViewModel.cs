@@ -36,7 +36,7 @@ namespace Realtor.ViewModels
         private decimal price;
         private string description;
         private string type;
-        private bool negotiable = true;
+        private string negotiable;
         private bool isBusy;
         string firstImageUrl;
         string secondImageUrl;
@@ -47,7 +47,6 @@ namespace Realtor.ViewModels
         int image2;
         int image3;
         int image4;
-
 
         public string ItemName
         {
@@ -104,7 +103,7 @@ namespace Realtor.ViewModels
                 SetProperty(ref type, value);
             }
         }
-        public bool Negotiable
+        public string Negotiable
         {
             get
             {
@@ -541,7 +540,7 @@ namespace Realtor.ViewModels
                 ItemPrice = this.Price,
                 Description = this.Description.ToLower().Trim(),
                 Location = this.Location.ToLower().Trim(),
-                ItemType = this.Type.ToLower().Trim(),
+                ItemType = this.Type,
                 Negotiable = this.Negotiable,
                 PhoneNumber = Settings.PhoneNumberSettings,
                 Email = Settings.EmailSettings,
@@ -564,7 +563,7 @@ namespace Realtor.ViewModels
                 Description = null;
                 Location = null;
                 Type = null;
-                Negotiable = false;
+                Negotiable = null;
                 FirstImage.Source = "Upload.png";
                 SecondImage.Source = "Upload.png";
                 ThirdImage.Source = "Upload.png";

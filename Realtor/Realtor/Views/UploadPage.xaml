@@ -146,7 +146,6 @@
                         Placeholder="Description"
                         PlaceholderColor="{StaticResource White}"
                         PlaceholderFontFamily="{StaticResource PoppinsRegular}"
-                        ReturnType="Next"
                         ShouldAnimateUnderline="True"
                         Text="{Binding Description}"
                         TextColor="{StaticResource White}"
@@ -156,53 +155,69 @@
                         UnderlineColor="{StaticResource White}" />
                 </yummy:PancakeView>
 
-                <yummy:PancakeView
-                    Padding="0"
-                    BorderColor="{StaticResource White}"
-                    BorderThickness="3"
-                    CornerRadius="20">
-                    <material:MaterialTextField
-                        AlwaysShowUnderline="True"
-                        BackgroundColor="Transparent"
-                        FloatingPlaceholderColor="{StaticResource White}"
-                        FloatingPlaceholderEnabled="True"
-                        InputType="Default"
-                        Placeholder="Property Type"
-                        PlaceholderColor="{StaticResource White}"
-                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
-                        ReturnType="Next"
-                        ShouldAnimateUnderline="True"
-                        Text="{Binding Type}"
-                        TextColor="{StaticResource White}"
-                        TextFontFamily="{StaticResource PoppinsRegular}"
-                        TextFontSize="15"
-                        TintColor="{StaticResource White}"
-                        UnderlineColor="{StaticResource White}" />
-                </yummy:PancakeView>
+                <Grid>
+                    <yummy:PancakeView
+                        Padding="0"
+                        BorderColor="{StaticResource White}"
+                        BorderThickness="3"
+                        CornerRadius="20">
+                        <material:MaterialTextField
+                            x:Name="Property"
+                            AlwaysShowUnderline="True"
+                            BackgroundColor="Transparent"
+                            FloatingPlaceholderColor="{StaticResource White}"
+                            FloatingPlaceholderEnabled="True"
+                            InputType="Default"
+                            Placeholder="Property Type"
+                            PlaceholderColor="{StaticResource White}"
+                            PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                            ShouldAnimateUnderline="True"
+                            Text="{Binding Type}"
+                            TextColor="{StaticResource White}"
+                            TextFontFamily="{StaticResource PoppinsRegular}"
+                            TextFontSize="15"
+                            TintColor="{StaticResource White}"
+                            UnderlineColor="{StaticResource White}" />
+                    </yummy:PancakeView>
+                    
+                    <BoxView Color="Transparent">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="PropertyType_Tapped" />
 
-                <yummy:PancakeView
-                    Padding="0"
-                    BorderColor="{StaticResource White}"
-                    BorderThickness="3"
-                    CornerRadius="20">
-                    <material:MaterialTextField
-                        AlwaysShowUnderline="True"
-                        BackgroundColor="Transparent"
-                        FloatingPlaceholderColor="{StaticResource White}"
-                        FloatingPlaceholderEnabled="True"
-                        InputType="Default"
-                        Placeholder="Negotiable? Enter Y for YES and N for NO"
-                        PlaceholderColor="{StaticResource White}"
-                        PlaceholderFontFamily="{StaticResource PoppinsRegular}"
-                        ReturnType="Next"
-                        ShouldAnimateUnderline="True"
-                        Text="{Binding Negotiable}"
-                        TextColor="{StaticResource White}"
-                        TextFontFamily="{StaticResource PoppinsRegular}"
-                        TextFontSize="15"
-                        TintColor="{StaticResource White}"
-                        UnderlineColor="{StaticResource White}" />
-                </yummy:PancakeView>
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                </Grid>
+
+                <Grid>
+                    <yummy:PancakeView
+                        Padding="0"
+                        BorderColor="{StaticResource White}"
+                        BorderThickness="3"
+                        CornerRadius="20">
+                        <material:MaterialTextField
+                            x:Name="DialogResults"
+                            AlwaysShowUnderline="True"
+                            BackgroundColor="Transparent"
+                            FloatingPlaceholderColor="{StaticResource White}"
+                            FloatingPlaceholderEnabled="True"
+                            Placeholder="Negotiable?"
+                            PlaceholderColor="{StaticResource White}"
+                            PlaceholderFontFamily="{StaticResource PoppinsRegular}"
+                            ShouldAnimateUnderline="True"
+                            Text="{Binding Negotiable}"
+                            TextColor="{StaticResource White}"
+                            TextFontFamily="{StaticResource PoppinsRegular}"
+                            TextFontSize="15"
+                            TintColor="{StaticResource White}"
+                            UnderlineColor="{StaticResource White}" />
+                    </yummy:PancakeView>
+                    
+                    <BoxView Color="Transparent">
+                        <BoxView.GestureRecognizers>
+                            <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="Opendialog_Tapped" />
+                        </BoxView.GestureRecognizers>
+                    </BoxView>
+                </Grid>
 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -217,7 +232,6 @@
                     </Grid.ColumnDefinitions>
 
                     <Image
-                        x:Name="frontImage"
                         Grid.Row="0"
                         Grid.Column="0"
                         Aspect="AspectFit"
@@ -261,12 +275,7 @@
                         Command="{Binding NavigateUploadCommand}"
                         Style="{StaticResource WhiteButton}"
                         Text="Upload" />
-
-
                 </Grid>
-
-
-
             </StackLayout>
         </ScrollView>
 
@@ -275,8 +284,5 @@
             Grid.Row="4"
             Style="{StaticResource WhiteMediumRegular}"
             Text="Meet your buyers" />
-
-
-
     </Grid>
 </ContentPage>
