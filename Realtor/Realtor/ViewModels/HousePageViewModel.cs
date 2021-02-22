@@ -90,31 +90,31 @@ namespace Realtor.ViewModels
 
             adsList.Add(new Ads
             {
-                Image = "https://www.jacklingo.com/realestate/images/listing_photos/DESU152822-302187116091-2019-12-17-11-38-22.jpg",
+                Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/home-selling-video-ad-template-design-ee5e8cf8367855aba51de46a841e14ae_screen.jpg?ts=1567091200",
                 Heading = "BUY",
                 Description = "We take the emotion out of the process to ensure you are getting the best price for the value"
             });
             adsList.Add(new Ads
             {
-                Image = "https://lh6.googleusercontent.com/proxy/Anshwjf1f0D6yqvH4YAbYjT-FJkPmfuVHe6-tgwmNTYT7OaqlwwxPGkwLb7nBjgaT5Ir31Ch8ZSRtDHkZHr3Dro4-OnyxiBK51OMy9uNwpT5fjbKqQ",
+                Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/real-estate-property-selling-video-ad-template-86bc96a8e4d57e1fe5b2e92361b0b4a5_screen.jpg?ts=1567091543",
                 Heading = "RENT",
                 Description = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life"
             });
             adsList.Add(new Ads
             {
-                Image = "https://www.jacklingo.com/realestate/images/listing_photos/DESU152822-302187116091-2019-12-17-11-38-22.jpg",
+                Image = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.postermywall.com%2Findex.php%2Fposterbuilder%2Fcopy%2F9f457019a8bbf150c6adeff93418f0f2&psig=AOvVaw0Tl5FkkBJ0VkwPsNaVqpSd&ust=1614100936578000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj4u9mA_u4CFQAAAAAdAAAAABBD",
                 Heading = "LEASE",
                 Description = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life"
             });
             adsList.Add(new Ads
             {
-                Image = "https://www.worldluxuryassociation.org/wp-content/uploads/2016/09/house-for-sale-in-Hyderabad.jpg",
+                Image = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.postermywall.com%2Findex.php%2Fart%2Ftemplate%2F2071b5ead46395f9b8fffc785ad5c1c3%2Fopen-house-real-estate-signage-ad-design-template&psig=AOvVaw0Tl5FkkBJ0VkwPsNaVqpSd&ust=1614100936578000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCJj4u9mA_u4CFQAAAAAdAAAAABBT",
                 Heading = "LEASE",
                 Description = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life"
             });
             adsList.Add(new Ads
             {
-                Image = "https://lh6.googleusercontent.com/proxy/Anshwjf1f0D6yqvH4YAbYjT-FJkPmfuVHe6-tgwmNTYT7OaqlwwxPGkwLb7nBjgaT5Ir31Ch8ZSRtDHkZHr3Dro4-OnyxiBK51OMy9uNwpT5fjbKqQ",
+                Image = "https://d1csarkz8obe9u.cloudfront.net/posterpreviews/home-selling-video-ad-template-design-ee5e8cf8367855aba51de46a841e14ae_screen.jpg?ts=1567091200",
                 Heading = "LEASE",
                 Description = "Explore the world from your point of view. Visit mountain and enjoy the freshness of life"
             });

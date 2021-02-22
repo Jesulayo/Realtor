@@ -82,7 +82,7 @@
                         HorizontalOptions="Center"
                         Spacing="0"
                         VerticalOptions="Center">
-                        <Image Aspect="AspectFill" Source="{Binding Image}" />
+                        <Image Aspect="Fill" Source="{Binding Image}" />
 
                     </StackLayout>
                 </DataTemplate>

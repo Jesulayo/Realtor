@@ -13,7 +13,7 @@
         <Grid>
             <Frame
                 x:Name="searchBar"
-                Margin="0,0,15,0"
+                Margin="0,10,15,10"
                 Padding="0"
                 CornerRadius="10"
                 HeightRequest="50"
