@@ -1,0 +1,24 @@
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Set Android signing
+      run:
+        echo "${{ secrets.KEYSTORE }}" > layomi.asc
+        gpg -d --passphrase "${{ secrets.DECRYPT_KEY }}" --batch layomi.asc > ./Realtor/Realtor.Android/layomi.jks 
+    - name: Restore Nuget packages
+      run: nuget restore
+    - name: Build Android
+      run: MSBuild /t:SignAndroidPackage /p:Configuration=Release /p:AndroidPackageFormat=apk /p:AndroidKeyStore=true /p:AndroidSigningKeyAlias=layomi /p:AndroidSigningKeyPass=${{ secrets.DECRYPT_KEY }} /p:AndroidSigningKeyStore=layomi.jks /p:AndroidSigningStorePass=${{ secrets.DECRYPT_KEY }} ./Realtor/Realtor.Android/Realtor.Android.csproj
